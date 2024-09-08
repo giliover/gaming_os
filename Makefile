@@ -5,6 +5,7 @@ BUILD_DIR=build
 
 $(BUILD_DIR)/disk.img: $(BUILD_DIR)/main.bin
 	cp $(BUILD_DIR)/main.bin $(BUILD_DIR)/disk.img
+	rm $(BUILD_DIR)/main.bin
 	truncate -s 1440k $(BUILD_DIR)/disk.img
 
 $(BUILD_DIR)/main.bin: $(SRC_DIR)/main.asm

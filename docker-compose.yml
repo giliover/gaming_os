@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  gaming_os:
+    container_name: gaming_os
+    image: gaming_os
+    stdin_open: true
+    entrypoint: sh -c "make && qemu-system-i386 -drive file=build/disk.img,format=raw,index=0,if=floppy -nographic"
+    build: .
+    volumes:
+      - ./src:/app/src
+      - ./build:/app/build
+    tty: true
